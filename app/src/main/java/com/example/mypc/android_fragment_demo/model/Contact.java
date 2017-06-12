@@ -1,5 +1,7 @@
 package com.example.mypc.android_fragment_demo.model;
 
+import com.example.mypc.android_fragment_demo.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,9 +14,9 @@ public class Contact {
     String name;
     String phoneNumber;
     String email;
-    String imgThumb;
+    int imgThumb;
 
-    public Contact(String id, String name, String phoneNumber, String email, String imgThumb) {
+    public Contact(String id, String name, String phoneNumber, String email, int imgThumb) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -54,25 +56,25 @@ public class Contact {
         this.email = email;
     }
 
-    public String getImgThumb() {
+    public int getImgThumb() {
         return imgThumb;
     }
 
-    public void setImgThumb(String imgThumb) {
+    public void setImgThumb(int imgThumb) {
         this.imgThumb = imgThumb;
     }
 
     public static List<Contact> dummyData() {
         List<Contact> dummyData = new ArrayList<>();
-        dummyData.add(new Contact("0", "test1", "11-1111-1111", "test1@example.com", "url1"));
-        dummyData.add(new Contact("1", "test2", "22-2222-2222", "test2@example.com", "url1"));
-        dummyData.add(new Contact("2", "test3", "33-3333-3333", "test3@example.com", "url1"));
-        dummyData.add(new Contact("3", "test4", "44-4444-4444", "test4@example.com", "url1"));
-        dummyData.add(new Contact("4", "test5", "55-5555-5555", "test5@example.com", "url1"));
-        dummyData.add(new Contact("5", "test6", "66-6666-6666", "test6@example.com", "url1"));
-        dummyData.add(new Contact("6", "test7", "77-7777-7777", "test7@example.com", "url1"));
-        dummyData.add(new Contact("7", "test8", "88-8888-8888", "test8@example.com", "url1"));
-        dummyData.add(new Contact("8", "test9", "99-9999-9999", "test9@example.com", "url1"));
+        dummyData.add(new Contact("0", "Selena Gomez", "202-555-0166", "SelenaGom@example.com", R.drawable.image1));
+        dummyData.add(new Contact("1", "Allen Walker", "01632 960424", "AllenWal@example.com", R.drawable.image2));
+        dummyData.add(new Contact("2", "George Clooney", "613-555-0149", "GeorgeClo@example.com", R.drawable.image3));
+        dummyData.add(new Contact("3", "Obama", "1900 654 321", "BarrackOba@example.com", R.drawable.image4));
+        dummyData.add(new Contact("4", "Scarlett Johansson", "06 55 540 916", "ScarlettJoh@example.com", R.drawable.image5));
+        dummyData.add(new Contact("5", "Danielle Lineker", "020 918 5654", "DenialleLin@example.com", R.drawable.image6));
+        dummyData.add(new Contact("6", "Thor", "06 55 749 656", "Thor@example.com", R.drawable.image7));
+        dummyData.add(new Contact("7", "Brad Pitt", "06 55 136 264", "BradPit@example.com", R.drawable.image8));
+        dummyData.add(new Contact("8", "Katy Perry", "020 916 6868", "KatyPer@example.com", R.drawable.image9));
         return dummyData;
     }
 }

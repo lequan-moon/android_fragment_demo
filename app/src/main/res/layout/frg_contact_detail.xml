@@ -2,28 +2,107 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#000000">
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/kamran"
+            android:alpha="0.8" />
+        <android.support.v7.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Personal Info"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:gravity="bottom"
+                android:textColor="#fff"/>
+        </android.support.v7.widget.Toolbar>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/profilePic"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/image1"
+                android:layout_marginTop="70dp"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+    </FrameLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Name:"/>
-    <TextView
-        android:id="@+id/txtContactName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.35"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="14sp"
+            android:layout_marginLeft="15dp"
+            android:padding="20dp"/>
+        <TextView
+            android:id="@+id/txtContactName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:layout_gravity="center"
+            android:background="#00000000"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Phone number:"/>
-    <TextView
-        android:id="@+id/txtPhoneNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.35"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:textSize="14sp"
+            android:layout_marginLeft="15dp"
+            android:padding="20dp"/>
+        <TextView
+            android:id="@+id/txtPhoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:layout_gravity="center"
+            android:background="#00000000"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email:"/>
-    <TextView
-        android:id="@+id/txtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.35"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="14sp"
+            android:layout_marginLeft="15dp"
+            android:padding="20dp"/>
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:padding="16dp"
+            android:layout_gravity="center"
+            android:background="#00000000"/>
+    </LinearLayout>
 </LinearLayout>

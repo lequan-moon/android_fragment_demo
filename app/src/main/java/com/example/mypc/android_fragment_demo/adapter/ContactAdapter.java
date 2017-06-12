@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.mypc.android_fragment_demo.R;
 import com.example.mypc.android_fragment_demo.model.Contact;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactL
         Contact item = lstContacts.get(position);
         holder.txtContactName.setText(item.getName());
         holder.txtContactId.setText(item.getId());
+        holder.imgContactThumb.setImageDrawable(mContext.getResources().getDrawable(item.getImgThumb(), null));
     }
 
     @Override
@@ -50,13 +52,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactL
 
     class ContactListViewHolder extends RecyclerView.ViewHolder{
         TextView txtContactName;
-        ImageView imgContactThumb;
+        CircularImageView imgContactThumb;
         TextView txtContactId;
 
         public ContactListViewHolder(View itemView) {
             super(itemView);
             txtContactName = (TextView) itemView.findViewById(R.id.txtContactName);
-            imgContactThumb = (ImageView) itemView.findViewById(R.id.imgContactThumb);
+            imgContactThumb = (CircularImageView) itemView.findViewById(R.id.imgContactThumb);
             txtContactId = (TextView) itemView.findViewById(R.id.txtContactId);
         }
     }

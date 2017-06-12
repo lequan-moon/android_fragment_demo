@@ -1,5 +1,6 @@
 package com.example.mypc.android_fragment_demo;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -19,38 +20,40 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         if (findViewById(R.id.contactFragmentContainer) != null) {
             FrgContactList frgContactList = new FrgContactList();
-            getSupportFragmentManager().beginTransaction().add(R.id.contactFragmentContainer, frgContactList).commit();
+            getFragmentManager().beginTransaction().add(R.id.contactFragmentContainer, frgContactList).commit();
         }
         if (findViewById(R.id.contactListContainer) != null) {
             FrgContactList frgContactList = new FrgContactList();
-            getSupportFragmentManager().beginTransaction().add(R.id.contactListContainer, frgContactList).commit();
+            getFragmentManager().beginTransaction().add(R.id.contactListContainer, frgContactList).commit();
         }
         if (findViewById(R.id.contactDetailContainer) != null) {
+            // Default select first contact
+            Bundle args = new Bundle();
+            args.putString(SELECTED_KEY_TRANSFER, "0");
             FrgContactDetail frgContactDetail = new FrgContactDetail();
-            getSupportFragmentManager().beginTransaction().add(R.id.contactDetailContainer, frgContactDetail).commit();
+            frgContactDetail.setArguments(args);
+            getFragmentManager().beginTransaction().add(R.id.contactDetailContainer, frgContactDetail).commit();
         }
     }
 
     @Override
     public void onClick(View v) {
-        FrgContactDetail contactDetailFragment = (FrgContactDetail) getSupportFragmentManager()
-                .findFragmentById(R.id.contactDetailContainer);
+        Fragment detailContainer = getFragmentManager().findFragmentById(R.id.contactDetailContainer);
         String id = ((TextView) v.findViewById(R.id.txtContactId)).getText().toString();
 
-        if (contactDetailFragment != null && contactDetailFragment.isVisible()) {
+        if (detailContainer != null && detailContainer.isVisible()) {
             // 2-pane layout(landscape)
-            contactDetailFragment.updateContactInfo(id);
+            FrgContactDetail contactDetailFragment = new FrgContactDetail();
+
+            Bundle args = new Bundle();
+            args.putString(SELECTED_KEY_TRANSFER, id);
+            contactDetailFragment.setArguments(args);
+            getFragmentManager().beginTransaction().replace(R.id.contactDetailContainer, contactDetailFragment).commit();
         } else {
             // 1-pane layout(portrait)
-            FrgContactDetail frgContactDetail = new FrgContactDetail();
-            Bundle args = new Bundle();
-            args.putString(MainActivity.SELECTED_KEY_TRANSFER, id);
-            frgContactDetail.setArguments(args);
-
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.contactFragmentContainer, frgContactDetail)
-                    .addToBackStack(null)
-                    .commit();
+            Intent itContactDetail = new Intent(this, ActContactDetail.class);
+            itContactDetail.putExtra(SELECTED_KEY_TRANSFER, id);
+            startActivity(itContactDetail);
         }
     }
 }

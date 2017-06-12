@@ -11,10 +11,13 @@
         android:id="@+id/txtContactName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"/>
-    <ImageView
+        android:layout_weight="3"
+        android:textSize="14sp"
+        android:layout_marginLeft="15dp"
+        android:padding="20dp"/>
+    <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/imgContactThumb"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:src="@drawable/image1"/>
 </LinearLayout>
